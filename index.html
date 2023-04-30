@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devplay2</title>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+    <style id="estilo2qwerty831809">
+        *{
+            margin:0;
+            padding:0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+
+        }
+        div.bar{
+            margin:0 auto;
+            text-align: center;
+            height: 4%;
+            /* line-height: 8mm;
+            vertical-align: middle; */
+        }
+
+        .icons{
+            display: inline-block;
+            height: 7mm;
+            width:7mm;
+            /* border:solid gray 1px; */
+            padding: 0.2%;
+            /* fill: rgb(158, 8, 245); */
+            /* background-color: blue;   */
+        }
+        .icons:hover{
+          /* background-color: rgb(158, 8, 245); */
+          fill: rgb(158, 8, 245);
+          cursor:pointer; 
+        }
+
+        div#downbar{
+            position: fixed;
+            z-index: 99;
+            bottom: 0;
+            width: 100%;
+            /* height: 4%; */
+            /* border-top: solid black 1px; */
+            background-color: rgb(251, 251, 252);
+            padding: 0.2% 0 0.1% 0;
+            
+        }
+
+        div.upbar{
+            z-index: 98;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            /* height: 3%; */
+            /* border-bottom: solid black 1px; */
+            background-color: rgb(251, 251, 252);
+            padding:  0.3% 0 0.2% 0;
+            
+        }
+
+        img.logo{
+            z-index: 99;
+            width: 30px;
+            height: auto;
+            position: fixed;
+            top:0;
+            left:0;
+        }
+
+        div.screens{
+            margin: 0 auto;
+            /* background-color: rgb(217, 217, 224); */
+            display: none;
+            position: absolute;
+            width: 100vw;
+            min-height:90%;
+            height:auto;
+            top: 5%;
+        }
+
+        div#home{
+            display: block;
+ 
+        }
+
+        div#account>img{
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .areasCode{
+            width: 20%;
+            height: 25%;
+            /* background-color: black;
+            color:white */
+        }
+
+        
+    </style>
+    <link rel="stylesheet" href="estilo.css" type="text/css">
+</head>
+<body id="corpo">
+
+
+
+    <div class="screens" id="home">
+        <div class="bar upbar" id="upbarHome">
+            <img class="logo" src="blank-icone-codeplay.png" alt="" srcset="">
+            <!-- <span >devPlay</span> -->
+        </div>
+        
+
+    </div>
+
+    <div class="screens" id="search">
+        <div class="bar upbar" id="upbarSearch">
+            <input type="search" placeholder="🔍Pesquisar">
+        </div>
+        <h1>Search</h1>
+    </div>
+
+    <div class="screens" id="codeeditor">
+        <div class="bar upbar" id="upbarCodeEditor">
+            <svg id="fechaCode" onclick="BtnProjetos()" title="Projetos" class="icons" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>
+            
+            <svg id="fechaView" onclick="preView()" title="Preview" class="icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><rect fill="none" height="24" width="24"/><path d="M19,3H5C3.89,3,3,3.9,3,5v14c0,1.1,0.89,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.11,3,19,3z M19,19H5V7h14V19z M12,10.5 c1.84,0,3.48,0.96,4.34,2.5c-0.86,1.54-2.5,2.5-4.34,2.5S8.52,14.54,7.66,13C8.52,11.46,10.16,10.5,12,10.5 M12,9 c-2.73,0-5.06,1.66-6,4c0.94,2.34,3.27,4,6,4s5.06-1.66,6-4C17.06,10.66,14.73,9,12,9L12,9z M12,14.5c-0.83,0-1.5-0.67-1.5-1.5 s0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5S12.83,14.5,12,14.5z"/></g></svg>
+    
+            <svg id="newPage"  title="Abrir em nova aba" class="icons"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><a href="page-view" target="_blank" rel="noopener noreferrer" ></a><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+           
+            <svg class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 21h18v-2H3v2zM3 8v8l4-4-4-4zm8 9h10v-2H11v2zM3 3v2h18V3H3zm8 6h10V7H11v2zm0 4h10v-2H11v2z"/></svg>
+    
+            <svg class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 17h10v-2H11v2zm-8-5l4 4V8l-4 4zm0 9h18v-2H3v2zM3 3v2h18V3H3zm8 6h10V7H11v2zm0 4h10v-2H11v2z"/></svg>
+    
+            <svg class="icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+    
+            <svg id="codeselectHTML" onclick="viewHTML()" class="icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24"  fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M3.5,9H5v6H3.5v-2.5h-2V15H0V9h1.5v2h2V9z M17.5,9H13c-0.55,0-1,0.45-1,1v5h1.5v-4.5h1V14H16v-3.51h1V15h1.5v-5 C18.5,9.45,18.05,9,17.5,9z M11,9H6v1.5h1.75V15h1.5v-4.5H11V9z M24,15v-1.5h-2.5V9H20v6H24z"/></g></svg>
+    
+            <svg id="codeselectCSS" onclick="viewCSS()" class="icons"  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"  fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M9.5,14v-1H11v0.5h2v-1h-2.5c-0.55,0-1-0.45-1-1V10c0-0.55,0.45-1,1-1h3c0.55,0,1,0.45,1,1v1H13v-0.5h-2v1h2.5 c0.55,0,1,0.45,1,1V14c0,0.55-0.45,1-1,1h-3C9.95,15,9.5,14.55,9.5,14z M17,15h3c0.55,0,1-0.45,1-1v-1.5c0-0.55-0.45-1-1-1h-2.5v-1 h2V11H21v-1c0-0.55-0.45-1-1-1h-3c-0.55,0-1,0.45-1,1v1.5c0,0.55,0.45,1,1,1h2.5v1h-2V13H16v1C16,14.55,16.45,15,17,15z M8,10 c0-0.55-0.45-1-1-1H4c-0.55,0-1,0.45-1,1v4c0,0.55,0.45,1,1,1h3c0.55,0,1-0.45,1-1v-1H6.5v0.5h-2v-3h2V11H8V10z"/></g></svg>
+    
+            <svg id="codeselectJS" onclick="viewJS();setSite()" title="Clique para salvar o código" class="icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M12,14v-1h1.5v0.5h2v-1H13c-0.55,0-1-0.45-1-1V10c0-0.55,0.45-1,1-1h3c0.55,0,1,0.45,1,1v1h-1.5v-0.5h-2v1H16 c0.55,0,1,0.45,1,1V14c0,0.55-0.45,1-1,1h-3C12.45,15,12,14.55,12,14z M9,9v4.5H7.5v-1H6v1C6,14.33,6.67,15,7.5,15H9 c0.83,0,1.5-0.67,1.5-1.5V9C10.5,9,9.83,9,9,9z"/></g></svg>
+
+            <svg id ="runCode" class="icons" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg>
+    
+        </div>
+        <h1>CodeEditor</h1>
+
+        <div id="containerfatherHTML" class="AreaCodeqwerty831809" >
+            <div id="sonHTML">HTML</div>
+            <textarea id="areaHTML" class="areasCode" spellcheck="false" type="text" cols="" rows="" placeholder="Escreva aqui seu código HTML"></textarea>
+        </div>
+
+        <div id="containerfatherCSS" class="AreaCodeqwerty831809" >
+            <div id="sonCSS">CSS</div>
+            <textarea id="areaCSS" class="areasCode" spellcheck="false" type="text"cols="" rows="" placeholder="Escreva aqui seu código CSS"></textarea>
+        </div>
+        
+        <div id="containerfatherJS"class="AreaCodeqwerty831809" >
+            <div id="sonJS" onclick="setSite()">JS</div>
+            <textarea id="areaJS" class="areasCode" spellcheck="false" type="text"cols="" rows="" placeholder="Escreva aqui seu código JavaScript"></textarea>
+        </div>
+
+        <iframe id="areaPreview" src="page-view" frameborder="0" title="Preview-of-page"></iframe>
+        
+    </div>
+
+    <div class="screens" id="account">
+        <div class="bar upbar" id="upbarAccount">
+           <span><en>carlosmagnobsantos</en> </span>
+           <span> + </span>
+           <span> ☰ </span> 
+           <span id="btnLogin" > login </span> 
+        
+        </div>
+        <h1>Account</h1>
+        <img src="IMG_20220328_222343_149.jpg">
+        <p>Carlos Magno Santos - nome de usuário</p>
+        <p>carlosmagno.github.io - site</p>
+
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
+
+    </div>
+
+    <div class="bar" id="downbar">
+
+        <svg  onclick="displayScreenHome()" class="icons" id="bthome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+
+        <svg onclick="displayScreenSearch()" class="icons" id="btsearch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+
+        <svg onclick="displayScreenCode()" class="icons" id="btcodeeditor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 5h10v2h2V3c0-1.1-.9-1.99-2-1.99L7 1c-1.1 0-2 .9-2 2v4h2V5zm8.41 11.59L20 12l-4.59-4.59L14 8.83 17.17 12 14 15.17l1.41 1.42zM10 15.17L6.83 12 10 8.83 8.59 7.41 4 12l4.59 4.59L10 15.17zM17 19H7v-2H5v4c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-4h-2v2z"/></svg>
+
+        <svg onclick="displayScreenAccount()" class="icons" id="btaccount" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M7.35,18.5C8.66,17.56,10.26,17,12,17 s3.34,0.56,4.65,1.5C15.34,19.44,13.74,20,12,20S8.66,19.44,7.35,18.5z M18.14,17.12L18.14,17.12C16.45,15.8,14.32,15,12,15 s-4.45,0.8-6.14,2.12l0,0C4.7,15.73,4,13.95,4,12c0-4.42,3.58-8,8-8s8,3.58,8,8C20,13.95,19.3,15.73,18.14,17.12z"/><path d="M12,6c-1.93,0-3.5,1.57-3.5,3.5S10.07,13,12,13s3.5-1.57,3.5-3.5S13.93,6,12,6z M12,11c-0.83,0-1.5-0.67-1.5-1.5 S11.17,8,12,8s1.5,0.67,1.5,1.5S12.83,11,12,11z"/></g></g></svg>
+
+
+    
+    
+    </div>
+
+    <script text="javscript" >
+        /*Bars*/
+        var upbar = document.getElementById("upbar")
+        var downbar = document.getElementById("downbar")
+
+
+        /*Screens*/
+        var home = document.getElementById("home")
+        var search = document.getElementById("search")
+        var codeeditor = document.getElementById("codeeditor")
+        var account = document.getElementById("account")
+        
+        /*Icons-Donwbar*/
+        var bthome = document.getElementById("bthome")
+        var btsearch = document.getElementById("btsearch")
+        var btcodeeditor = document.getElementById("btcodeeditor")
+        var btaccount = document.getElementById("btaccount")
+
+        // var elementClicked
+
+        // downbar.addEventListener("click", (e)=>{
+        //     console.log(e)
+        //     elementClicked =  e.srcElement.id
+        //     if(elementClicked=="downbar"||elementClicked==""){
+        //     }else{
+        //         displayScreen()
+        //     }
+
+        // });
+
+        // function displayScreen(){
+        //         home.style.display="none"; search.style.display="none"; codeeditor.style.display="none"; account.style.display="none";
+        //         if(elementClicked=="bthome"){home.style.display="block"};
+        //         if(elementClicked=="btsearch"){search.style.display="block"};
+        //         if(elementClicked=="btcodeeditor"){codeeditor.style.display="block"}
+        //         if(elementClicked=="btaccount"){account.style.display="block"}
+        // }
+        
+        function ocultar(){
+            home.style.display="none"; search.style.display="none"; codeeditor.style.display="none"; account.style.display="none"; 
+        }
+        function displayScreenHome(){
+            ocultar()
+            home.style.display="block"
+        }
+        function displayScreenSearch(){
+            ocultar()
+            search.style.display="block"
+        }
+
+        function displayScreenCode(){
+            ocultar()
+            codeeditor.style.display="block"
+        }
+
+        function displayScreenAccount(){
+            ocultar()
+            account.style.display="block"
+        }
+
+
+
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth__pt_br.js"></script>
+<script>
+const firebaseConfig2 = {
+    apiKey: "AIzaSyBvzRjk0gSalWDP2hfmZJluOsVUYCsKafg",
+    authDomain: "codeplay-br.firebaseapp.com",
+    projectId: "codeplay-br",
+    storageBucket: "codeplay-br.appspot.com",
+    messagingSenderId: "531957206062",
+    appId: "1:531957206062:web:bbfdf6d6ba765ceb9ce3bf",
+    measurementId: "G-RBZNST1GPY"
+};
+firebase.initializeApp(firebaseConfig2);
+btnLogin.addEventListener('click', startUI);
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+function startUI(){
+  //console.log(auth)
+
+  //var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  ui.start('#firebaseui-auth-container', {
+    signInOptions: [
+      // List of OAuth providers supported.      
+      {
+        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        requireDisplayName: true
+      },
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID
+    ],
+    // Other config options...
+  });
+}
+
+// function startUI(){
+//     //console.log(auth)
+//     //var ui = new firebaseui.auth.AuthUI(firebase.auth());
+//     ui.start('#firebaseui-auth-container')
+// }
+
+</script>
+
+    <script src="script.js"></script>
+    <script type="module" src="script-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script> -->
+
+    <script src="script3.js"></script>
+    
+</body>
+</html>

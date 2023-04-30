@@ -1,0 +1,175 @@
+body{
+    /* width: 50%; */
+    margin: 0 auto;
+    text-align: center;
+    /* background-color: black; */
+}
+div.posts{
+    position: relative;
+    width:50vw;
+    height:45vh;
+    /* margin: 50vh 1vw; */
+    margin: 5vh 25vw 5vh;
+    /* background-color: aqua; */
+    /* border: 1px solid rgb(182, 181, 181); */
+    border-radius:2px;
+}
+
+div.barbuttons2{
+    display: inline-block;
+    width: 47%;
+    /* background-color: rgb(241, 98, 98);  */
+    font-weight: 900;
+    text-align: right;
+    /* margin-right: 1vw; */
+}
+
+div.barbuttons1{
+    display: inline-block;
+    width: 50%;
+    /* background-color: rgb(120, 112, 128);  */
+    font-weight: 900;
+    text-align: left;
+    margin-left:0;
+}
+
+div.barbuttons3{
+    display: inline-block;
+    position:absolute;
+    left:0;
+    bottom: 4vh;
+    width: 90%;
+    /* background-color: rgb(233, 39, 5);  */
+    font-weight: 900;
+    text-align: left;
+    margin-left: 1vw;
+}
+
+.containerfather{
+    width:48vw;
+    height:30vh;
+    margin: 5vh 1vw;
+    position:absolute;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(182, 181, 181);
+    top:0;
+    left:0;
+    overflow-y: scroll;
+    text-align: left;
+}
+
+.spansCode{
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.spansInfo{
+    margin-left: 5px;
+    font-weight: 999;
+    vertical-align: middle;
+    /* color: blueviolet; */
+}
+/* .spansDesenvolvedor{
+    display: inline-block;
+    text-align: left;
+    background-color: rgb(226, 214, 43);
+} */
+
+.spansCode:hover, .spansInfo:hover{
+    cursor: pointer;
+    color:blueviolet;
+}
+
+div#containerfatherHTML {
+    background-color: rgb(5, 5, 5);
+    position:absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    height: 45vh;
+    /* border-right: 3vh solid white; */
+}
+
+div#containerfatherCSS {
+    background-color: rgb(0, 0, 0);
+    position:absolute;
+    top:0;
+    right:0;
+    width: 50%;
+    height: 45vh;  
+
+}
+
+div#containerfatherJS{
+    background-color: rgb(7, 7, 7);
+    position:absolute;
+    top:45vh;
+   left:0;
+    width: 50%;
+    height:45vh;
+}
+
+div#sonHTML, div#sonCSS, div#sonJS{
+    position: absolute;
+    text-align: center;
+    top:0;
+    right:23px;
+    width:60px;
+    height:20px;
+    line-height: 20px;
+    background-color:rgb(203, 111, 240);
+    color:rgb(247, 252, 251);
+    opacity:0.8;
+    font-weight: bold;
+    
+}
+
+div#sonHTML{
+    background-color: rgb(250, 63, 6);
+    color: rgb(255, 255, 255);
+}
+div#sonJS{
+    background-color: rgb(250, 213, 6);
+    color: rgb(7, 7, 7);
+}
+div#sonJS:hover{
+    background-color:rgb(7, 7, 7); 
+    color: rgb(250, 213, 6);
+    cursor:pointer;
+}
+
+div#sonCSS{
+    background-color: rgb(6, 132, 250);
+    color: rgb(253, 251, 251);
+}
+
+textarea.areasCode {
+    justify-self: center;
+    align-self: center;
+    background-color: rgb(54, 54, 56);
+    color: rgb(253, 253, 253);
+    padding: 1%;
+    resize: none;
+    width: 97.5%;
+    height: 95%;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: scroll;
+    white-space : nowrap;
+}
+
+iframe#areaPreview {
+    position: absolute;
+    top: 45vh;
+    right:0;
+    margin:0;
+    padding: 0;
+    overflow:scroll;
+    width: 50%;
+    height:45vh;
+    /* border-bottom: solid black 1px; */
+   /*  border-right: solid black 1px; */
+}
+
+
+
