@@ -98,6 +98,7 @@ function ocultaRename(){
 
 function getNameProject(){
     inputRename.value=ListaProjetos.value
+    codexist.src += '';
 };
 
 function saveNewNameProject(){
@@ -117,7 +118,7 @@ function saveNewNameProject(){
         console.log("nameProjectSubs: ", nameProjectSubs)
         console.log("localStorage.getItem('Projeto Atual') ", localStorage.getItem("Projeto Atual"))
         localStorage.setItem("Projeto Atual", newNameProject)
-        NomeProjeto.value = newNameProject
+        //NomeProjeto.value = newNameProject
     }
 };
 
@@ -184,13 +185,13 @@ function updateArray(){
             ListaProjetos.innerHTML=""
         }
         filtered.forEach(listarProjetos)
-
+/*
         if(NomeProjeto){
             if(NomeProjeto.value==localStorage.getItem("Projeto Atual")){
                 ListaProjetos.value=localStorage.getItem("Projeto Atual")
             }
         }
-     
+*/     
         
      }else if(arrayProjetos.length==1){
 
@@ -308,7 +309,7 @@ function chamadaExcluir(){
         if (arrayProjetos.length>1){
             var filtered = arrayProjetos.filter(isProject);
             excluirSite()
-            NomeProjeto.value=''
+            //NomeProjeto.value=''
             localStorage.setItem("Projetos", JSON.stringify(filtered))
             localStorage.setItem("Projeto Atual", "")
             ListaProjetos.innerHTML=""
@@ -321,7 +322,7 @@ function chamadaExcluir(){
             exibeDivMessage("Projeto excluído.")
         }else if(arrayProjetos.length==1){
             excluirSite()
-            NomeProjeto.value=''
+            //NomeProjeto.value=''
             localStorage.removeItem("Projetos")
             localStorage.removeItem("Projeto Atual")
             ListaProjetos.innerHTML=""
@@ -391,16 +392,25 @@ function gravarProjeto(){
     NovoProjeto.value=""
     
 };
-
+function RunCode(){
+    areaCSS.value= localStorage.getItem("CSS")
+    areaHTML.value= localStorage.getItem("HTML")
+    areaJS.value= localStorage.getItem("JSS")
+    codexist.src += '';
+    console.log(  "RunCode atuou"  )
+}
 function selecionarSite(){
 
     areaCSS.value=""
     areaHTML.value=""
     areaJS.value=""
     projetoSelecionado = ListaProjetos.value
-    NomeProjeto.value = projetoSelecionado
-    localStorage.setItem("Projeto Atual", NomeProjeto.value)
-    if(localStorage.getItem(NomeProjeto.value)){
+    //NomeProjeto.value = projetoSelecionado
+    //localStorage.setItem("Projeto Atual", NomeProjeto.value)
+    localStorage.setItem("Projeto Atual", ListaProjetos.value)
+    if(localStorage.getItem(ListaProjetos.value)){
+        console.log("aqui")
+
         getSite()
         codexist.src += '';
     }else{
@@ -436,17 +446,17 @@ function listarProjetos(iten, index){
 };
 
 function setSite(){
-    if(!NomeProjeto.value==""){
+   // if(!NomeProjeto.value==""){}
         site={
             html:areaHTML.value,
             css: areaCSS.value,
             js:areaJS.value  
         }
         // Transformar o objeto em string e salvar em localStorage
-        localStorage.setItem(NomeProjeto.value, JSON.stringify(site));
+        localStorage.setItem(ListaProjetos.value, JSON.stringify(site));
         getSite();
         codexist.src += '';
-    }
+    
 };
 
 function BtnProjetos(){
@@ -472,7 +482,8 @@ function getSite(){
 
     if(localStorage.getItem("Projeto Atual")){
         projetoAtual = localStorage.getItem("Projeto Atual")
-    }else{
+    }
+    else{
         projetoAtual="Projeto Demo"
         localStorage.setItem("Projeto Atual", projetoAtual)
     }
@@ -747,11 +758,11 @@ var areaJSdemo = document.getElementById("areaJSdemo")
         }
         // Transformar o objeto em string e salvar em localStorage
         localStorage.setItem(nomeProjeto, JSON.stringify(site));
-        if(NomeProjeto){
-            console.log("há NomeProjeto")
-            NomeProjeto.value = localStorage.getItem("Projeto Atual")
-            getSite()
-        }
+        // if(NomeProjeto){
+        //     console.log("há NomeProjeto")
+        //     NomeProjeto.value = localStorage.getItem("Projeto Atual")
+        //     getSite()
+        // }
         //getSite();
         codexist.src += '';
     }
@@ -766,7 +777,7 @@ var Facilitador=true
  */
 if(areaHTML){
     areaHTML.addEventListener('keypress', (e) => {
-        console.log("keypress: " + e.key)
+        //console.log("keypress: " + e.key)
         if(e.key=="p" && Facilitador==true){
             
             var divDatalist = document.createElement("div")
@@ -811,7 +822,7 @@ if(areaHTML){
     // });
 
     areaHTML.addEventListener('input', (e) => {
-        console.log(e)
+        //console.log(e)
         var str = areaHTML.value
         areaHTML.value =  str.replace("<span ", " <span>  </span> " )
         areaHTML.value =  str.replace("<span1 ", " <span>  </span> " )
@@ -819,7 +830,7 @@ if(areaHTML){
         //areaHTML.value =  str.replace("<h1 ", " <h1>  </h1> " );
         areaHTML.value =  str.replace("<ah ", " <a href=' '>  </a> ");
         //console.log("keydown: " + e.key)
-       console.log("string subsituida")
+       //console.log("string subsituida")
         /*if(e.key=="p"){
 
             
@@ -962,15 +973,21 @@ window.onload = function (){
         }
 
         if(areaHTML){
-            areaHTML.addEventListener("input",setSite);
+            console.log("conteudo HTML alterado")
+            //areaHTML.addEventListener("input",setSite);
         }
         if(areaCSS){
-            areaCSS.addEventListener("input",setSite);
+            console.log("conteudo CSS alterado")
+            //areaCSS.addEventListener("input",setSite);
         }
-        if(NomeProjeto){
-            NomeProjeto.value = localStorage.getItem("Projeto Atual")
-            getSite()
+        if(areaJS){
+            console.log("conteudo JS alterado")
+            //areaJS.addEventListener("input",setSite);
         }
+        // if(NomeProjeto){
+        //     NomeProjeto.value = localStorage.getItem("Projeto Atual")
+        //     getSite()
+        // }
    
     }
 

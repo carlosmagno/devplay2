@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-console.log(app)
+//console.log(app)
 //import { getAuth } from "https://www.gstatic.com/firebasejs/ui/9.9.4/firebase-ui-auth.js";
 //import { getAuth } from "firebase/auth";
 //const auth = firebase.auth();
@@ -67,14 +67,27 @@ const areaPreview = document.getElementById("areaPreview")
      
 //Atualizar alguns campos de um documento sem subtituir o documento inteiro usamos método update()
     async function updateProject(){
-        const projetoRef = doc(db, "Projetos", NomeProjeto.value);
-        // Set the "capital" field of the city 'DC'
-        await updateDoc(projetoRef, {
-        HTML: areaHTML.value,
-        CSS: areaCSS.value,
-        JS: areaJS.value
-        });
-    }
+
+        console.log("ATUALIZAR PROJETO")
+
+        localStorage.setItem("HTML", areaHTML.value)
+        localStorage.setItem("CSS", areaCSS.value)
+        localStorage.setItem("JS", areaJS.value)
+
+
+        // const projetoRef = doc(db, "Projetos", ListaProjetos.value);
+        // if(projetoRef){
+        // // Set the "capital" field of the city 'DC'
+        // await updateDoc(projetoRef, {
+        //     HTML: areaHTML.value,
+        //     CSS: areaCSS.value,
+        //     JS: areaJS.value
+        //     });
+        // }else{
+        //     console.log("não existe esse projeto")
+        // }
+
+    };
 
 
     if(!window.location.href.endsWith("page-view")||(!window.location.href.endsWith("page-view/"))){
@@ -83,10 +96,16 @@ const areaPreview = document.getElementById("areaPreview")
         }
 
         if(areaHTML){
+            //console.log("conteudo HTML alterado")
             areaHTML.addEventListener("input",updateProject);
         }
         if(areaCSS){
+            //console.log("conteudo CSS alterado")
             areaCSS.addEventListener("input",updateProject);
+        }
+        if(areaJS){
+            //console.log("conteudo JS alterado")
+            areaJS.addEventListener("input",updateProject);
         }
    
    
@@ -143,6 +162,10 @@ async function getProjectBD(){
 
 window.onload=getHomeProjects()
 
+/**
+ * Função para exibir na Home os projetos gravados
+ */
+
 async function getHomeProjects(){
     var n=0;
     var divHTML;
@@ -190,7 +213,7 @@ async function getHomeProjects(){
     var newiframeRun = document.createElement('iframe');
         newiframeRun.setAttribute("class", "containerfather");
         newiframeRun.setAttribute("id", `iframeRUN${n}`);
-        newiframeRun.setAttribute("src", "page-view");
+        newiframeRun.setAttribute("src", "page-code");
         newiframeRun.setAttribute("frameborder", "0");  
 
     var newSpanDesenvolvedor = document.createElement('span');
@@ -217,6 +240,11 @@ async function getHomeProjects(){
         newSpanRun.setAttribute("id", `${n}`);
         newSpanRun.setAttribute("class", "spansCode");
         newSpanRun.innerText=" ▶️ ";
+
+    var newSpanOpenInNewWindow = document.createElement('span')
+        newSpanOpenInNewWindow.setAttribute("id", `${n}`);
+        newSpanOpenInNewWindow.setAttribute("class", "spansCode");
+        newSpanOpenInNewWindow.innerHTML='<svg class="icons"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>';
 
     // var newIconFavorite = document.createElement('img');
     //     newIconFavorite.setAttribute("id", `${n}`);
@@ -272,7 +300,13 @@ async function getHomeProjects(){
         iframeRun.style.zIndex = 2;
     }
 
-    newSpanRun.onclick= function(){
+    newSpanRun.onclick=  function(){
+
+     
+        // localStorage.setItem("HTMLcode", "" )
+        // localStorage.setItem("CSScode", "")
+        // localStorage.setItem("JScode", "")
+
         divHTML = document.getElementById(`divHTML${this.id}`) 
         divCSS = document.getElementById(`divCSS${this.id}`) 
         divJS = document.getElementById(`divJS${this.id}`)
@@ -289,16 +323,31 @@ async function getHomeProjects(){
         divJS.style.zIndex=2;
         iframeRun.style.zIndex = 3;
 
-        localStorage.setItem("HTML", divHTML.innerText )
-        localStorage.setItem("CSS", divCSS.innerText )
-        localStorage.setItem("JS", divJS.innerText )
+        localStorage.setItem("HTMLcode", divHTML.innerText )
+        localStorage.setItem("CSScode", divCSS.innerText )
+        localStorage.setItem("JScode", divJS.innerText )
         // corpopage.innerHTML = divHTML.innerText;
         // estilo.innerHTML = divCSS.innerText; 
         // codeJS.innerHTML = divJS .innerText;
+        
         iframeRun.src+=" "
+        
     }
-    
 
+    newSpanOpenInNewWindow.onclick = function(){
+        divHTML = document.getElementById(`divHTML${this.id}`) 
+        divCSS = document.getElementById(`divCSS${this.id}`) 
+        divJS = document.getElementById(`divJS${this.id}`)
+        iframeRun = document.getElementById(`iframeRUN${this.id}`)
+
+        localStorage.setItem("HTMLcode", divHTML.innerText )
+        localStorage.setItem("CSScode", divCSS.innerText )
+        localStorage.setItem("JScode", divJS.innerText )
+        iframeRun.src+=" "
+        window.location="../page-code";
+
+        
+    }
 
     // var newBarButtons = document.createElement('div');
     // newBarButtons.setAttribute("class","barbuttons");
@@ -314,6 +363,7 @@ async function getHomeProjects(){
         newbarbutton2.appendChild(newSpanCss);
         newbarbutton2.appendChild(newSpanJs);
         newbarbutton2.appendChild(newSpanRun)
+        newbarbutton2.appendChild(newSpanOpenInNewWindow);
         //newbarbutton3.appendChild(newIconFavorite)
        //newbarbutton3.appendChild(newIconMark)
         newbarbutton3.append(newSpanNomeProjeto)
@@ -321,6 +371,7 @@ async function getHomeProjects(){
     newPost.append(newDivJS)
     newPost.append(newDivCSS)
     newPost.append(newDivHTML)
+
     
     
     
