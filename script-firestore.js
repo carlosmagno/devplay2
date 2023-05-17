@@ -51,21 +51,84 @@ const areaPreview = document.getElementById("areaPreview")
     // });
 
 //Adicionar um novo documento sem especificar um ID, deixando o Cloud Firestore gerar um automaticamente, usamos método add()
+
+
+// async function addProject2(){
+//     try {
+//         const docRef = await addDoc(collection(db, "Projetos", NovoProjeto.value), {
+//         HTML: "Escreva seu código HTML",
+//         CSS: "Escreva seu código CSS",
+//         JS: "Escreva seu código JavaScript",
+//         });
+//         console.log("Documento gravado com ID: ", docRef.id);
+//     } catch (e) {
+//         console.error("Erro ao adicionar documento: ", e);
+//     }
+// }
+
+var btOKnewProject = document.getElementById("btOKnewProject")
+btOKnewProject.addEventListener("click", addProject)
+var NovoProjeto = document.getElementById("NovoProjeto")
+var nameP
+
+NovoProjeto.addEventListener("input",gravaNome);
+
+function gravaNome(){
+    nameP = NovoProjeto.value
+    console.log(nameP)
+}
+
     async function addProject(){
+        //var docRef=(doc(db, "Projetos", NovoProjeto.value));
+        console.log(nameP)
         try {
-            const docRef = await addDoc(collection(db, "Projetos"), {
-            HTML: "<h1> Projeto Teste numero 2",
-            CSS: "body{color:red}",
-            JS: "console.log('js executado com sucesso')",
-            });
-            console.log("Document written with ID: ", docRef.id);
+                  
+            await setDoc(doc(db, "Projetos", nameP), {
+                HTML: "Escreva seu código HTML",
+                CSS: "Escreva seu código CSS",
+                JS: "Escreva seu código JavaScript",
+                Desenvolvedor: "Carlos Magno",
+                Nome: nameP
+                  });
+              
+            // await setDoc(docRef, {
+            // HTML: "Escreva seu código HTML",
+            // CSS: "Escreva seu código CSS",
+            // JS: "Escreva seu código JavaScript",
+            // });
+            // console.log("Documento gravado com ID: ", docRef.id);
         } catch (e) {
-            console.error("Error adding document: ", e);
+            console.error("Erro ao adicionar documento: ", e);
         }
     }
 
      
 //Atualizar alguns campos de um documento sem subtituir o documento inteiro usamos método update()
+
+var runCode = document.getElementById("runCode")
+
+runCode.addEventListener("click",updateProjectBD)
+
+
+async function updateProjectBD(){
+
+    console.log("ATUALIZADO PROJETO NO BD FIREBASE")
+
+    const projetoRef = doc(db, "Projetos", ListaProjetos.value);
+    if(projetoRef){
+    // Set the "capital" field of the city 'DC'
+    await updateDoc(projetoRef, {
+        HTML: areaHTML.value,
+        CSS: areaCSS.value,
+        JS: areaJS.value
+        });
+    }else{
+        console.log("não existe esse projeto")
+    }
+
+};
+
+
     async function updateProject(){
 
         console.log("ATUALIZAR PROJETO")
@@ -138,26 +201,60 @@ const areaPreview = document.getElementById("areaPreview")
 
 //window.onload=getProjectBD()
 //fechaView.addEventListener("click", getProject)
+var btcodeeditor = document.getElementById("btcodeeditor")
+var btOKselectProject = document.getElementById("btOKselectProject")
+
+btOKselectProject.addEventListener("click", getProjectBD)
 async function getProjectBD(){
-        const docRef = doc(db, "Projetos", "Projeto Demo");
+        const docRef = doc(db, "Projetos", ListaProjetos.value);
         const docSnap = await getDoc(docRef);
     
         if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data().CSS);
+       // console.log("Document data:", docSnap.data().CSS);
 
         areaHTML.value = docSnap.data().HTML;
         areaCSS.value = docSnap.data().CSS;
         areaJS.value = docSnap.data().JS;
 
+        localStorage.setItem("CSS", areaCSS.value)
+        localStorage.setItem("HTML", areaHTML.value)
+        localStorage.setItem("JSS", areaJS.value)
+        codexist.src += '';
+        console.log("Projeto existente e baixado do BD!")
+        
         } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
+        localStorage.setItem("CSS", "")
+        localStorage.setItem("HTML", "")
+        localStorage.setItem("JSS", "")
+        codexist.src += '';
+        console.log("Não existe esse projeto!");
         }
+        //RunCode()
     }
 
 //Recuperar todos os documentos em uma coleção
 //Além disso, é possível recuperar todos os documentos de uma coleção, basta omitir o filtro where() completamente:
 
+
+function listarProjetosAoAbrirBD(){
+    var arrayProjetosBD = [];
+    if(localStorage.getItem("Projetos")){
+        arrayProjetosBD= JSON.parse(localStorage.getItem("Projetos"))
+        arrayProjetosBD.forEach(listarProjetosBD)  
+    }else{
+
+    }
+};
+
+function listarProjetosBD(iten, index){
+    var novo = document.createElement("option")
+    novo.innerText= iten
+    if(ListaProjetos){
+        ListaProjetos.appendChild(novo)
+    }
+   
+};
 
 
 window.onload=getHomeProjects()
@@ -175,15 +272,21 @@ async function getHomeProjects(){
     const querySnapshot = await getDocs(collection(db, "Projetos"));
     querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    
+        var novo = document.createElement("option")
+        novo.innerText= doc.id
+        if(ListaProjetos){
+            ListaProjetos.appendChild(novo)
+        }
+   
         n+=1
-        //console.log(doc.id, " => ", doc.data());
+        console.log(doc.id, " => ", doc.data());
         //console.log(n);
     
         var divHome = document.getElementById("home")
 
     var newPost = document.createElement('div');
         newPost.setAttribute("class", "posts");
+        //newPost.setAttribute("class", "posts");
 
     var newbarbutton1 = document.createElement('div');
         newbarbutton1.setAttribute("class", "barbuttons1");

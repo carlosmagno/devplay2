@@ -39,14 +39,15 @@
         /* svg:hover path {
         fill: #fce57e;
         } */
-                div#downbar{
+            div#downbar{
             position: fixed;
             z-index: 99;
+            left: 0;
             bottom: 0;
             width: 100%;
             /* height: 4%; */
             /* border-top: solid black 1px; */
-            background-color: rgb(251, 251, 252);
+            background-color: rgb(236, 236, 241);
             padding: 0.2% 0 0.1% 0;
             
         }
@@ -73,18 +74,22 @@
         }
 
         div.screens{
-            margin: 0 auto;
+            /* margin: 0 auto; */
             /* background-color: rgb(217, 217, 224); */
+            /* width: 90%; */
             display: none;
             position: absolute;
-            width: 100vw;
+            width: 100%;
             min-height:90%;
             height:auto;
             top: 5%;
         }
 
         div#home{
+            width: 100%;
             display: block;
+            /* background-color: blue; */
+            /* overflow-y: hidden; */
  
         }
 
@@ -112,7 +117,7 @@
     <div class="screens" id="home">
         <div class="bar upbar" id="upbarHome">
             <img class="logo" src="blank-icone-codeplay.png" alt="" srcset="">
-            <!-- <span >devPlay</span> -->
+            
         </div>
         
 
@@ -222,75 +227,7 @@
     
     </div>
 
-    <script text="javscript" >
-        /*Bars*/
-        var upbar = document.getElementById("upbar")
-        var downbar = document.getElementById("downbar")
-
-
-        /*Screens*/
-        var home = document.getElementById("home")
-        var search = document.getElementById("search")
-        var codeeditor = document.getElementById("codeeditor")
-        var account = document.getElementById("account")
-        
-        /*Icons-Donwbar*/
-        var bthome = document.getElementById("bthome")
-        var btsearch = document.getElementById("btsearch")
-        var btcodeeditor = document.getElementById("btcodeeditor")
-        var btaccount = document.getElementById("btaccount")
-
-        // var elementClicked
-
-        // downbar.addEventListener("click", (e)=>{
-        //     console.log(e)
-        //     elementClicked =  e.srcElement.id
-        //     if(elementClicked=="downbar"||elementClicked==""){
-        //     }else{
-        //         displayScreen()
-        //     }
-
-        // });
-
-        // function displayScreen(){
-        //         home.style.display="none"; search.style.display="none"; codeeditor.style.display="none"; account.style.display="none";
-        //         if(elementClicked=="bthome"){home.style.display="block"};
-        //         if(elementClicked=="btsearch"){search.style.display="block"};
-        //         if(elementClicked=="btcodeeditor"){codeeditor.style.display="block"}
-        //         if(elementClicked=="btaccount"){account.style.display="block"}
-        // }
-        
-        function ocultar(){
-            home.style.display="none"; search.style.display="none"; codeeditor.style.display="none"; account.style.display="none"; 
-        }
-        function displayScreenHome(){
-            ocultar()
-            home.style.display="block"
-        }
-        function displayScreenSearch(){
-            ocultar()
-            search.style.display="block"
-        }
-
-        function displayScreenCode(){
-            ocultar()
-            listarProjetosAoAbrir()
-            localStorage.setItem("HTML", "" )
-            localStorage.setItem("CSS", "" )
-            localStorage.setItem("JS", "" )
-            codexist.src +=""
-            codeeditor.style.display="block"
-        }
-
-        function displayScreenAccount(){
-            ocultar()
-            account.style.display="block"
-        }
-
-
-
-    </script>
-
+    
 <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth__pt_br.js"></script>
@@ -344,6 +281,76 @@ function startUI(){
     <!-- <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script> -->
 
     <script src="script3.js"></script>
+    <script text="javscript" >
+        /*Bars*/
+        var upbar = document.getElementById("upbar")
+        var downbar = document.getElementById("downbar")
+
+
+        /*Screens*/
+        var home = document.getElementById("home")
+        var search = document.getElementById("search")
+        var codeeditor = document.getElementById("codeeditor")
+        var account = document.getElementById("account")
+        
+        /*Icons-Donwbar*/
+        var bthome = document.getElementById("bthome")
+        var btsearch = document.getElementById("btsearch")
+        var btcodeeditor = document.getElementById("btcodeeditor")
+        var btaccount = document.getElementById("btaccount")
+
+        // var elementClicked
+
+        // downbar.addEventListener("click", (e)=>{
+        //     console.log(e)
+        //     elementClicked =  e.srcElement.id
+        //     if(elementClicked=="downbar"||elementClicked==""){
+        //     }else{
+        //         displayScreen()
+        //     }
+
+        // });
+
+        // function displayScreen(){
+        //         home.style.display="none"; search.style.display="none"; codeeditor.style.display="none"; account.style.display="none";
+        //         if(elementClicked=="bthome"){home.style.display="block"};
+        //         if(elementClicked=="btsearch"){search.style.display="block"};
+        //         if(elementClicked=="btcodeeditor"){codeeditor.style.display="block"}
+        //         if(elementClicked=="btaccount"){account.style.display="block"}
+        // }
+        
+        function ocultar(){
+            home.style.display="none"; search.style.display="none"; codeeditor.style.display="none"; account.style.display="none"; 
+        }
+        function displayScreenHome(){
+            ocultar()
+            home.style.display="block"
+        }
+        function displayScreenSearch(){
+            ocultar()
+            search.style.display="block"
+        }
+
+        function displayScreenCode(){
+            ocultar()
+            //listarProjetosAoAbrir()
+            localStorage.setItem("HTML", "" )
+            localStorage.setItem("CSS", "" )
+            localStorage.setItem("JS", "" )
+            codexist.src +=""
+            codeeditor.style.display="block"
+            //getProjectBD()
+        }
+
+        function displayScreenAccount(){
+            ocultar()
+            account.style.display="block"
+        }
+
+
+
+    </script>
+
     
 </body>
 </html>

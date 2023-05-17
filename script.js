@@ -200,6 +200,7 @@ function updateArray(){
 };
 
 function chamada(){
+    
     arrayProjetos = []
     if(localStorage.getItem("Projetos")){
         arrayProjetos= JSON.parse(localStorage.getItem("Projetos")) //recupera ele
@@ -395,7 +396,7 @@ function gravarProjeto(){
 function RunCode(){
     areaCSS.value= localStorage.getItem("CSS")
     areaHTML.value= localStorage.getItem("HTML")
-    areaJS.value= localStorage.getItem("JSS")
+    areaJS.value= localStorage.getItem("JS")
     codexist.src += '';
     console.log(  "RunCode atuou"  )
 }
@@ -462,6 +463,7 @@ function setSite(){
 function BtnProjetos(){
     ocultaNovo()
     ocultaRename()
+   //listarProjetosAoAbrir()
     box.style.height="80px"
     btNovo.style.backgroundColor="rgb(139, 73, 201)"
     btNovo.style.color="white"
@@ -473,7 +475,10 @@ function BtnProjetos(){
         box.style.display="none"
     }else{
         box.style.display="block"
-        ListaProjetos.value=localStorage.getItem("Projeto Atual")
+        
+        var proj = localStorage.getItem("Projeto Atual")
+        ListaProjetos.value= proj
+        console.log( proj)
     }
 };
 
@@ -931,7 +936,7 @@ window.onload = function (){
 
     if(inputRename){
         ListaProjetos.addEventListener('change', (event) => {
-            getNameProject()
+            //getNameProject()
         });
     }
 
