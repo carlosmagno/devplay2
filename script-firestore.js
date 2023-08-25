@@ -224,10 +224,10 @@ async function getProjectBD(){
         
         } else {
         // doc.data() will be undefined in this case
-        localStorage.setItem("CSS", "")
-        localStorage.setItem("HTML", "")
-        localStorage.setItem("JSS", "")
-        codexist.src += '';
+       // localStorage.setItem("CSS", "")
+       // localStorage.setItem("HTML", "")
+       // localStorage.setItem("JSS", "")
+       // codexist.src += '';
         console.log("Não existe esse projeto!");
         }
         //RunCode()
