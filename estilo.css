@@ -31,7 +31,7 @@ div.barbuttons2{
 div.barbuttons1{
     display: inline-block;
     
-    width: 50%;
+    width: 45%;
     height: 8%;
     background-color: rgb(120, 112, 128); 
     font-weight: 900;
@@ -42,10 +42,11 @@ div.barbuttons1{
 
 div.barbuttons3{
     display: inline-block;
-    position:absolute;
+   /* position:absolute;
     left:0;
     bottom: 3vh;
-    width: 100%;
+    */
+    width: 90%;
     background-color: rgb(233, 39, 5);
     font-weight: 900;
     text-align: left;
@@ -57,12 +58,15 @@ div.barbuttons3{
     height:30vh;
     /***margin: 5vh 1vw;*/
     /***padding: 5px;*/
-    position:absolute;
+    
     /*background-color: rgb(255, 255, 255);*/
     background-color: gold;
     border: 1px solid rgb(182, 181, 181);
+   /* 
+    position:absolute;
     top:5vh;
     left:5vw;
+    */
     overflow-y: scroll;
     text-align: left;
 }
