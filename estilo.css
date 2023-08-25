@@ -10,7 +10,7 @@ div.posts{
     width:98vw;
     height:42vh;
     /* margin: 50vh 1vw; */
-    /*** margin: 5vh auto;*/
+    margin: 3vh auto;
     background-color: aqua; 
     /* border: 1px solid rgb(182, 181, 181); */
     /* border-radius:2px; */
@@ -61,8 +61,8 @@ div.barbuttons3{
     /*background-color: rgb(255, 255, 255);*/
     background-color: gold;
     border: 1px solid rgb(182, 181, 181);
-    top:0;
-    left:0;
+    top:5vh;
+    left:5vw;
     overflow-y: scroll;
     text-align: left;
 }
