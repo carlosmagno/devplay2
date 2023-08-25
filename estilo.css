@@ -7,7 +7,7 @@ body{
 }
 div.posts{
     position: relative;
-    width:50vw;
+    width:100vw;
     height:42vh;
     /* margin: 50vh 1vw; */
     margin: 5vh 25vw 5vh;
