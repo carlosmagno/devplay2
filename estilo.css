@@ -62,11 +62,11 @@ div.barbuttons3{
     /*background-color: rgb(255, 255, 255);*/
     background-color: gold;
     border: 1px solid rgb(182, 181, 181);
-   /* 
+   
     position:absolute;
     top:5vh;
     left:5vw;
-    */
+
     overflow-y: scroll;
     text-align: left;
 }
