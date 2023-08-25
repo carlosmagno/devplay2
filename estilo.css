@@ -7,7 +7,7 @@ body{
 }
 div.posts{
     position: relative;
-    width:100vw;
+    width:98vw;
     height:42vh;
     /* margin: 50vh 1vw; */
     /*** margin: 5vh auto;*/
@@ -123,7 +123,7 @@ div#containerfatherJS{
 }
 
 div#sonHTML, div#sonCSS, div#sonJS{
-    display:none;
+    
     position: absolute;
     text-align: center;
     top:0;
