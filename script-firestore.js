@@ -447,7 +447,7 @@ async function getHomeProjects(){
         localStorage.setItem("CSScode", divCSS.innerText )
         localStorage.setItem("JScode", divJS.innerText )
         iframeRun.src+=" "
-        window.location="../page-code";
+        window.location="./page-code";
 
         
     }
