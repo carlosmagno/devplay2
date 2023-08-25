@@ -47,6 +47,7 @@ div.barbuttons3{
     bottom: 3vh;
     */
     width: 90%;
+    height: 8%;
     background-color: rgb(233, 39, 5);
     font-weight: 900;
     text-align: left;
@@ -55,8 +56,8 @@ div.barbuttons3{
 
 .containerfather{
     width:90%;
-    height:100%;
-    margin: 1vh auto;
+    height:84%;
+    margin: 0 auto;
     padding: 5px;
     
     /*background-color: rgb(255, 255, 255);*/
