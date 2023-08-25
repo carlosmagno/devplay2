@@ -64,10 +64,10 @@ div.barbuttons3{
     border: 1px solid rgb(182, 181, 181);
    
     position:absolute;
-    /*
+    
     top:5vh;
     left:5vw;
-     */
+    
     overflow-y: scroll;
     text-align: left;
 }
