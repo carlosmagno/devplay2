@@ -10,8 +10,8 @@ div.posts{
     width:100vw;
     height:42vh;
     /* margin: 50vh 1vw; */
-    margin: 5vh 25vw 5vh;
-    /* background-color: aqua; */
+    margin: 5vh auto;
+    background-color: aqua; 
     /* border: 1px solid rgb(182, 181, 181); */
     /* border-radius:2px; */
 }
