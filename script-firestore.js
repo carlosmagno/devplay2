@@ -206,11 +206,11 @@ var btOKselectProject = document.getElementById("btOKselectProject")
 
 btOKselectProject.addEventListener("click", getProjectBD)
 async function getProjectBD(){
-        const docRef = doc(db, "Projetos", ListaProjetos.value);
+        const docRef = doc(db, `Projetos`, ListaProjetos.value);
         const docSnap = await getDoc(docRef);
     
         if (docSnap.exists()) {
-       // console.log("Document data:", docSnap.data().CSS);
+       console.log("Document data:", docSnap.data().CSS);
 
         areaHTML.value = docSnap.data().HTML;
         areaCSS.value = docSnap.data().CSS;
@@ -347,8 +347,8 @@ async function getHomeProjects(){
     var newSpanOpenInNewWindow = document.createElement('span')
         newSpanOpenInNewWindow.setAttribute("id", `${n}`);
         newSpanOpenInNewWindow.setAttribute("class", "spansCode");
-        newSpanOpenInNewWindow.innerHTML='<svg class="icons"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>';
-
+        newSpanOpenInNewWindow.innerHTML='<span title="Abrir em nova aba"> <a href="page-code" target="_blank" rel="noopener noreferrer" ><svg class="icons"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a> </span>';
+        //<span title="Abrir em nova aba"> <a href="page-view" target="_blank" rel="noopener noreferrer" ><svg  class="icons"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a> </span>
     // var newIconFavorite = document.createElement('img');
     //     newIconFavorite.setAttribute("id", `${n}`);
     //     newIconFavorite.setAttribute("class", "spansCode");
@@ -406,34 +406,43 @@ async function getHomeProjects(){
     newSpanRun.onclick=  function(){
 
      
-        // localStorage.setItem("HTMLcode", "" )
-        // localStorage.setItem("CSScode", "")
-        // localStorage.setItem("JScode", "")
+        localStorage.setItem("HTMLcode", "" )
+        localStorage.setItem("CSScode", "")
+        localStorage.setItem("JScode", "")
 
         divHTML = document.getElementById(`divHTML${this.id}`) 
         divCSS = document.getElementById(`divCSS${this.id}`) 
         divJS = document.getElementById(`divJS${this.id}`)
         iframeRun = document.getElementById(`iframeRUN${this.id}`)
 
-        // var corpopage = document.getElementById("corpopage")
-        // var estilo = document.getElementById("estilo")
-        // var codeJS = document.getElementById('codejs')
-        //console.log(`iframeRUN${this.id}`)
+        setTimeout(function(){
 
-        //console.log(divJS)
-        divHTML.style.zIndex=0;
-        divCSS.style.zIndex=1;
-        divJS.style.zIndex=2;
-        iframeRun.style.zIndex = 3;
 
-        localStorage.setItem("HTMLcode", divHTML.innerText )
-        localStorage.setItem("CSScode", divCSS.innerText )
-        localStorage.setItem("JScode", divJS.innerText )
-        // corpopage.innerHTML = divHTML.innerText;
-        // estilo.innerHTML = divCSS.innerText; 
-        // codeJS.innerHTML = divJS .innerText;
-        
-        iframeRun.src+=" "
+    
+            // var corpopage = document.getElementById("corpopage")
+            // var estilo = document.getElementById("estilo")
+            // var codeJS = document.getElementById('codejs')
+            //console.log(`iframeRUN${this.id}`)
+    
+            //console.log(divJS)
+            divHTML.style.zIndex=0;
+            divCSS.style.zIndex=1;
+            divJS.style.zIndex=2;
+            iframeRun.style.zIndex = 3;
+    
+            localStorage.setItem("HTMLcode", divHTML.innerText )
+            localStorage.setItem("CSScode", divCSS.innerText )
+            localStorage.setItem("JScode", divJS.innerText )
+            // corpopage.innerHTML = divHTML.innerText;
+            // estilo.innerHTML = divCSS.innerText; 
+            // codeJS.innerHTML = divJS .innerText;
+
+            iframeRun.src+=" "
+
+        }, 1000)
+        //if(esperar==0){window.clearTimeout(esperar );
+       
+        //iframeRun.src+=" "
         
     }
 
@@ -447,7 +456,7 @@ async function getHomeProjects(){
         localStorage.setItem("CSScode", divCSS.innerText )
         localStorage.setItem("JScode", divJS.innerText )
         iframeRun.src+=" "
-        window.location="./page-code";
+        //window.location="./page-code";
 
         
     }

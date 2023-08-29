@@ -11,7 +11,9 @@ const CSSexist = document.getElementById('estilo2qwerty831809');
  * Alterar daqui pra baixo - 30/04/2023
  */
 
-
+areaHTML.addEventListener('click', ocultaBox, false)
+areaCSS.addEventListener('click', ocultaBox, false)
+areaJS.addEventListener('click', ocultaBox, false)
 
 
 var ListaProjetos = document.getElementById("ListaProjetos");
@@ -460,6 +462,8 @@ function setSite(){
     
 };
 
+
+
 function BtnProjetos(){
     ocultaNovo()
     ocultaRename()
@@ -469,17 +473,43 @@ function BtnProjetos(){
     btNovo.style.color="white"
     btRename.style.backgroundColor="rgb(139, 73, 201)"
     btRename.style.color="white"
+
+
     
     if(box.style.display=="block"){
-      
         box.style.display="none"
+
+            // document.body.addEventListener('click', (e)=>{
+            // var el = (e.target.id)
+            // console.log( el)
+            // if (el !== box){
+            // console.log( "!box")
+            // box.style.display="none"             
+            // document.body.removeEventListener('click')
+            // }
+            // });
+        
     }else{
         box.style.display="block"
-        
         var proj = localStorage.getItem("Projeto Atual")
         ListaProjetos.value= proj
         console.log( proj)
-    }
+
+       // if (box.style.display=="block"){
+            // document.body.addEventListener('click', (e)=>{
+            // var el = (e.target.id)
+            // console.log( el)
+            // if (el !== box && box.style.display=="block"){
+            // console.log( "!box")
+            // box.style.display="none"
+            
+            //}
+            // else{box.style.display=="none"};
+            //box.style.display=="none"
+            //console.log( e)
+        
+        }
+   
 };
 
 function getSite(){
@@ -597,6 +627,18 @@ function preView(){
 
         // getProject()
 };
+
+function ocultaBox (){
+    box.style.display="none"
+    if(box.style.display=="block"){
+       
+        areaHTML.removeEventListener('click', ocultaBox, false)  
+        areaCSS.removeEventListener('click', ocultaBox, false)  
+        areaJS.removeEventListener('click', ocultaBox, false)  
+    }
+    
+
+}
 
 function viewHTML() {
     divHTML.style.zIndex=2;
