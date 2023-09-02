@@ -257,7 +257,7 @@ function listarProjetosBD(iten, index){
 };
 
 
-window.onload=getHomeProjects()
+//window.onload=getHomeProjects()
 
 /**
  * Função para exibir na Home os projetos gravados
