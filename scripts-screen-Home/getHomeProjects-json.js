@@ -1,22 +1,3 @@
-var bdJson = [];
-
-bdJson = [
-    {
-        id:"Projeto1",
-        HTML:"<h1>Projeto 1</h1>",
-        CSS: "*{color:pink;}",
-        JS:"//Comentário em JS",
-        Desenvolvedor:"Carlos Magno"
-    },
-
-    {
-        id:"Projeto2",
-        HTML:"<h1>Projeto 2</h1>",
-        CSS: "*{color:red;}",
-        JS:"//Comentário em JS",
-        Desenvolvedor:"Pedro Magno"
-    },
-]
 
 window.onload=getHomeProjectsJson()
 
