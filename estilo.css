@@ -7,20 +7,42 @@ body{
 }
 div.posts{
     position: relative;
-    width:98vw;
+    width:100%;
     height:42vh;
     /* margin: 50vh 1vw; */
     margin: 3vh auto;
-   /* background-color: aqua; */
+    background-color: aqua;
     /* border: 1px solid rgb(182, 181, 181); */
     /* border-radius:2px; */
 }
 
+.containerfather{
+    display: inline-block;
+    width:86%;
+    /* max-height: 20%; */
+    height:50%;
+    /* margin: 1vh auto; */
+    padding: 2%;
+    
+    /* background-color: rgb(255, 255, 255); */
+    background-color: rgb(253, 216, 5);
+    border: 1px solid rgb(182, 181, 181);
+   
+    /* position:absolute;
+    
+    top:5vh;
+    left:4%; */
+    
+    overflow-y: scroll;
+    text-align: left;
+}
+
+
 div.barbuttons2{
     display: inline-block;
-    width: 45%;
-    height: 8%;
-    /* background-color: rgb(241, 98, 98);*/
+    width: 90%;
+    /* height: 8%; */
+    background-color: rgb(241, 98, 98);
     font-weight: 900;
     text-align: right;
     vertical-align: bottom;
@@ -32,8 +54,8 @@ div.barbuttons1{
     display: inline-block;
     
     width: 45%;
-    height: 8%;
-   /* background-color: rgb(120, 112, 128); */
+    /* height: 8%; */
+   background-color: rgb(120, 112, 128);
     font-weight: 900;
     text-align: left;
     vertical-align: bottom;
@@ -47,31 +69,13 @@ div.barbuttons3{
     bottom: 3vh;
     */
     width: 90%;
-    height: 8%;
-    /*background-color: rgb(233, 39, 5);*/
+    /* height: 8%; */
+    background-color: rgb(233, 39, 5);
     font-weight: 900;
     text-align: left;
     /**margin-left: 1vw;*/
 }
 
-.containerfather{
-    width:88%;
-    height:84%;
-    margin: 1vh auto;
-    padding: 5px;
-    
-    background-color: rgb(255, 255, 255);
-    /*background-color: gold;"*/
-    border: 1px solid rgb(182, 181, 181);
-   
-    position:absolute;
-    
-    top:5vh;
-    left:4vw;
-    
-    overflow-y: scroll;
-    text-align: left;
-}
 
 .spansCode{
     margin-left: 5px;

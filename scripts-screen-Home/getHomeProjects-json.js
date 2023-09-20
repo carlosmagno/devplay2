@@ -45,21 +45,21 @@ async function getHomeProjectsJson(){
         newDivHTML.innerText= doc.HTML
         
 
-    var newDivCSS = document.createElement('div');
-        newDivCSS.setAttribute("class", "containerfather");
-        newDivCSS.setAttribute("id", `divCSS${n}`);
-        newDivCSS.innerText= doc.CSS   
+    // var newDivCSS = document.createElement('div');
+    //     newDivCSS.setAttribute("class", "containerfather");
+    //     newDivCSS.setAttribute("id", `divCSS${n}`);
+    //     newDivCSS.innerText= doc.CSS   
 
-    var newDivJS = document.createElement('div');
-        newDivJS.setAttribute("class", "containerfather");
-        newDivJS.setAttribute("id", `divJS${n}`);
-        newDivJS.innerText= doc.JS
+    // var newDivJS = document.createElement('div');
+    //     newDivJS.setAttribute("class", "containerfather");
+    //     newDivJS.setAttribute("id", `divJS${n}`);
+    //     newDivJS.innerText= doc.JS
 
-    var newiframeRun = document.createElement('iframe');
-        newiframeRun.setAttribute("class", "containerfather");
-        newiframeRun.setAttribute("id", `iframeRUN${n}`);
-        newiframeRun.setAttribute("src", "page-code");
-        newiframeRun.setAttribute("frameborder", "0");  
+    // var newiframeRun = document.createElement('iframe');
+    //     newiframeRun.setAttribute("class", "containerfather");
+    //     newiframeRun.setAttribute("id", `iframeRUN${n}`);
+    //     newiframeRun.setAttribute("src", "page-code");
+    //     newiframeRun.setAttribute("frameborder", "0");  
 
     var newSpanDesenvolvedor = document.createElement('span');
         newSpanDesenvolvedor.setAttribute("id", `${n}`);
@@ -209,10 +209,10 @@ async function getHomeProjectsJson(){
     
     divHome.insertAdjacentElement("beforeend", newPost)
     //divHome.appendChild(newPost)
-    newPost.appendChild(newbarbutton1);
+    
     newPost.appendChild(newbarbutton2);
-    newPost.appendChild(newbarbutton3);
-        newbarbutton1.appendChild(newSpanDesenvolvedor);
+    
+        //newbarbutton1.appendChild(newSpanDesenvolvedor);
         newbarbutton2.appendChild(newSpanHtml);
         newbarbutton2.appendChild(newSpanCss);
         newbarbutton2.appendChild(newSpanJs);
@@ -221,10 +221,12 @@ async function getHomeProjectsJson(){
         //newbarbutton3.appendChild(newIconFavorite)
        //newbarbutton3.appendChild(newIconMark)
         newbarbutton3.append(newSpanNomeProjeto)
-        newPost.appendChild(newiframeRun)
-    newPost.append(newDivJS)
-    newPost.append(newDivCSS)
+        //newPost.appendChild(newiframeRun)
+    // newPost.append(newDivJS)
+    // newPost.append(newDivCSS)
     newPost.append(newDivHTML)
+    //newPost.appendChild(newbarbutton1);
+    newPost.appendChild(newbarbutton3);
 
     
     
